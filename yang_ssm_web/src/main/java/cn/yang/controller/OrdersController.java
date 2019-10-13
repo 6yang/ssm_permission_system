@@ -5,6 +5,7 @@ import cn.yang.service.IOrdersService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,8 +28,9 @@ public class OrdersController {
 
 
     @RequestMapping("/findAll")
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")int page,
-                                @RequestParam(name = "size",required = true,defaultValue = "4") int size){
+//    @Secured("ROLE_ADMIN")
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")Integer page,
+                                @RequestParam(name = "size",required = true,defaultValue = "4") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Orders> ordersList = iOrdersService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(ordersList);

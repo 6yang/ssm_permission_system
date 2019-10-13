@@ -4,6 +4,7 @@ import cn.yang.domain.Role;
 import cn.yang.domain.UserInfo;
 import cn.yang.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,8 @@ public class UserController {
     private IUserService iUserService;
 
     @RequestMapping("/findAll")
-    @RolesAllowed({"ADMIN"})
+//    @RolesAllowed({"ADMIN"})
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView();
         List<UserInfo> userInfoList = iUserService.findAll();
@@ -37,6 +39,7 @@ public class UserController {
     }
 
     @RequestMapping("/save")
+    @PreAuthorize("authentication.principal.username == 'tom'")
     public String  save(UserInfo userInfo){
         iUserService.save(userInfo);
         return "redirect:findAll";
