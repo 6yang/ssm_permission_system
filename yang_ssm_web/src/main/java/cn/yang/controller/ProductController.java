@@ -42,4 +42,9 @@ public class ProductController {
         mv.setViewName("product-list");
         return mv;
     }
+    @RequestMapping("/delete")
+    public  String delete(@RequestParam(name = "ids",required = true)String[] ids){
+        productService.delete(ids);
+        return "redirect:findAll";
+    }
 }

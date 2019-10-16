@@ -9,4 +9,6 @@ public interface IProductService {
     List<Product> findAll(int page,int size);
 
     void save(Product product);
+
+    void delete(String[] ids);
 }

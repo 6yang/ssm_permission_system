@@ -14,6 +14,7 @@
         <log4j.version>1.2.12</log4j.version>
         <oracle.version>10.2.0.4.0</oracle.version>
         <mybatis.version>3.4.5</mybatis.version>
+        <jackson.version>2.9.0</jackson.version>
         <spring.security.version>5.0.1.RELEASE</spring.security.version>
     </properties>
 
@@ -168,6 +169,22 @@
             <artifactId>jsr250-api</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>

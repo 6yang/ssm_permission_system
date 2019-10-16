@@ -4,8 +4,6 @@ import cn.yang.domain.Orders;
 import cn.yang.service.IOrdersService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +45,12 @@ public class OrdersController {
         mv.addObject("orders",orders);
         mv.setViewName("orders-show");
         return mv;
+    }
+    @RequestMapping("/delete")
+    public String delete(@RequestParam(name = "ids",required = true)String[] ids)  {
+
+        iOrdersService.delete(ids);
+        return "redirect:findAll";
     }
 
 }

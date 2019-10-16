@@ -34,4 +34,11 @@ public class ProductServiceImpl implements IProductService {
         iProductDao.save(product);
     }
 
+    @Override
+    public void delete(String[] ids) {
+        for (String id : ids) {
+            iProductDao.delete(id);
+        }
+    }
+
 }

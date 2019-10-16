@@ -34,4 +34,11 @@ public class OrdersServiceImpl implements IOrdersService {
     public Orders findById(String ordersId) {
         return iOrdersDao.findById(ordersId);
     }
+
+    @Override
+    public void delete(String[] ids) {
+        for (String id : ids) {
+            iOrdersDao.delete(id);
+        }
+    }
 }

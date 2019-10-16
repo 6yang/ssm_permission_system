@@ -1,6 +1,7 @@
 package cn.yang.dao;
 
 import cn.yang.domain.Product;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -20,4 +21,7 @@ public interface IProductDao {
             " product(productNum,productName,cityName,departureTime,productPrice,productDesc,productStatus) " +
             " values(#{productNum},#{productName},#{cityName},#{departureTime},#{productPrice},#{productDesc},#{productStatus})")
     void save(Product product);
+
+    @Delete("delete from product where id = #{id}")
+    void delete(String id);
 }

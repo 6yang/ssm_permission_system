@@ -42,4 +42,7 @@ public interface IOrdersDao {
                     many = @Many(select = "cn.yang.dao.ITravellerDao.findByOrdersId"))
     })
     Orders findById(String ordersId);
+
+    @Update("delete from orders where id =#{id}")
+    void delete(String id);
 }

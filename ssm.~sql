@@ -207,6 +207,16 @@ insert into permission(permissionName,url) values('user findById','/user/findByI
 
 insert into role_permission values('111','2824D238540A40E5ABD6FFD8C1944F75');
 insert into role_permission values('111','12E032F24F2446ECA34B0B6A982E43E4');
+-- 创建日志表
+CREATE TABLE sysLog(
+  id VARCHAR2(32) default SYS_GUID() PRIMARY KEY,
+  visitTime timestamp,
+  username VARCHAR2(50),
+  ip VARCHAR2(30),
+  url VARCHAR2(50),
+  executionTime int,
+  method VARCHAR2(200)
+)
 
-
+select * from syslog;
 

@@ -11,4 +11,6 @@ public interface IOrdersService {
     List<Orders> findAll(int page,int size);
 
     Orders findById(String ordersId);
+
+    void delete(String[] ids);
 }
